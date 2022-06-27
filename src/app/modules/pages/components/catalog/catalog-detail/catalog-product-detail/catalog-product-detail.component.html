@@ -1,0 +1,113 @@
+<div *ngIf="!productLoading" class="product-detail">
+  <div class="categories text-gray-500 mt-4">
+    <span *ngFor="let item of productData.productCategories" class="text-xs font-semibold">
+      <span class="text-green-500">{{item}}</span>&nbsp;&nbsp;>&nbsp;&nbsp;
+    </span>
+    <span class="text-xs font-semibold">{{productData?.productName}}</span>
+  </div>
+  <div class="mt-4 bg-white">
+    <div class="grid grid-cols-4">
+      <div class="col-span-3">
+        <div class="p-6">
+          <div class="grid grid-cols-3">
+            <div class="col-span-1">
+              <div class="px-6"></div>
+              <img [src]="productData?.productImages[0]" alt="">
+            </div>
+            <div class="col-span-2">
+              <div class="p-10">
+                <h2 class="font-semibold text-lg text-gray-700">{{productData?.productName}}</h2>
+                <p class="text-sm mt-2">Brand: <span class="text-green-500">{{productData?.productBrand}}</span></p>
+                <h2 class="font-semibold text-lg text-orange-500 mt-3">Rs. {{productData?.price}}</h2>
+                <div class="divider"></div>
+                <div class="quantity flex items-center">
+                  <h2 class="font-semibold text-sm mr-8">Quantity:</h2>
+                  <button [class.disabled]="quantity === 1" (click)="decrementQuantity()">-</button>
+                  <span class="font-semibold text-sm" style="width: 15px;">{{quantity}}</span>
+                  <button [class.disabled]="quantity === productData?.stockQuantity" (click)="incrementQuantity()">+</button>
+                </div>
+                <div class="links mt-8 flex justify-start">
+                  <a class="btn mr-4" (click)="buyNow()">
+                      <span class="content">
+                          Buy Now
+                          <i class="icon fas fa-angle-right ml-2"></i>
+                      </span>
+                  </a>
+                  <a class="btn outline" (click)="addToCart()">
+                      <span class="content">
+                          Add to Cart
+                      </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="bg-gray-100 h-full" style="background: #fafafa;">
+          <section class="section-side section-delivery px-6 py-4">
+            <div class="title">Delivery</div>
+            <div class="content">
+              <div class="mb-4 flex items-center">
+                <i class="fas fa-light fa-location-dot mr-4 icon"></i>
+                <span class="content-title">Sindh, Karachi - Gulshan-e-Iqbal, Block 15</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                  <i class="fas fa-light fa-truck-ramp-box mr-4 icon"></i>
+                  <div>
+                    <div class="content-title">Home Delivery</div>
+                    <div class="content-tag">3 - 5 Day(s)</div>
+                  </div>
+                </div>
+                <div class="price">Rs. {{productData?.price}}</div>
+              </div>
+            </div>
+          </section>
+          <section class="section-side section-service px-6 py-4">
+            <div class="title">Service</div>
+            <div class="content">
+              <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center">
+                  <i class="fas fa-solid fa-person-walking-arrow-loop-left mr-4 icon"></i>
+                  <div>
+                    <div class="content-title">7 Day Return</div>
+                    <div class="content-tag">Change of mind available</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-solid fa-shield mr-4 icon"></i>
+                <span class="content-title">Warranty not available</span>
+              </div>
+            </div>
+          </section>
+          <section class="section-side section-store px-6 py-4">
+            <div class="title">Sold By</div>
+            <div class="content">
+              <div class="flex items-center">
+                <i class="fas fa-solid fa-shop mr-4 icon"></i>
+                <a class="content-title">{{productData?.shop?.companyName}}</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 bg-white section">
+    <h2 class="font-semibold text-sm text-gray-700 px-10 py-4 section-title">Product details of {{productData?.productName}}</h2>
+    <div class="text-xs text-gray-700 px-10 py-4" [innerHTML]="productData?.longDescription"></div>
+  </div>
+  <div class="mt-4 bg-white section">
+    <h2 class="font-semibold text-sm text-gray-700 px-10 py-4 section-title">Specifications of {{productData?.productName}}</h2>
+    <div class="px-10 py-4">
+      <div class="grid grid-cols-2">
+        <div *ngFor="let item of productData?.productFeatures" class="col-span-1">
+          <p class="text-xs text-gray-700">{{item}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

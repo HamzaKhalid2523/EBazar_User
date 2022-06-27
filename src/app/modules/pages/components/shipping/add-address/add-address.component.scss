@@ -1,0 +1,13 @@
+nz-tag {
+  padding: 15px 30px;
+  border-radius: 10px;
+}
+.links a nz-tag {
+  background: transparent;
+}
+.links a.selected nz-tag.ant-tag-blue {
+  background: #e6f7ff;
+}
+.links a.selected nz-tag.ant-tag-orange {
+  background: #fff7e6;
+}

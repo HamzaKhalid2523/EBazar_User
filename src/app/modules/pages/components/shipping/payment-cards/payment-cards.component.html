@@ -1,0 +1,52 @@
+<div class="flex justify-center cart">
+  <div class="container">
+    <div class="grid grid-cols-4 gap-4">
+      <div class="col-span-3">
+        <!-- <div class="mt-4 bg-white px-8 py-4 flex justify-between">
+          <label class="flex items-center text-lg font-semibold">Select Payment Method</label>
+          <a class="btn">
+            <span class="content flex justify-center items-center">
+              Add Card
+              <i nz-icon nzType="credit-card" nzTheme="outline" class="icon fas fa-angle-right ml-3"></i>
+            </span>
+          </a>
+        </div> -->
+        <div class="mt-4 bg-white px-8 py-4 flex justify-center items-center">
+          <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
+            <div class="form-row">
+              <label for="card-info">Card Info</label>
+              <div id="card-info" #cardInfo></div>
+
+              <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+            </div>
+
+            <button type="submit">
+              <span *ngIf="loading">
+                <i nz-icon [nzType]="'loading'"></i>
+              </span>
+              Pay
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="mt-4 bg-white px-8 py-4">
+          <h2 class="font-semibold text-lg text-gray-700 underline mb-6">Order Summary</h2>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Subtotal (2 Items)</h2>
+            <h2 class="text-sm">Rs. {{itemsTotal}}</h2>
+          </div>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Shipping Fee</h2>
+            <h2 class="text-sm">Rs. {{shippingTotal}}</h2>
+          </div>
+          <div class="divider"></div>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Total</h2>
+            <h2 class="text-sm">Rs. {{subTotal}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

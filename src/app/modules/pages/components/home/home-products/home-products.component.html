@@ -1,0 +1,336 @@
+<div class="container">
+  <div class="flex justify-between py-2">
+    <h4 class="text-lg font-semibold">Ebazar Products</h4>
+  </div>
+  <div class="grid grid-cols-12 gap-4 productslist">
+    <div class="col-span-2 product" *ngFor="let item of dataList">
+      <a [routerLink] = "['/catalog-detail', item?._id]">
+        <div class="product-img">
+          <img *ngIf="item.productImages.length" [src]="item.productImages[0]" alt="">
+        </div>
+        <div class="product-content">
+          <div class="product-title">{{item?.productName}}</div>
+          <div class="product-price">Rs. {{item?.price}}</div>
+        </div>
+      </a>
+    </div>
+    <!-- <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div>
+    <div class="col-span-2 product">
+      <div class="product-img">
+        <img src="https://static-01.daraz.pk/p/53c531e7c635aee85fd95265543e900d.jpg_200x200q90-product.jpg_.webp" alt="">
+      </div>
+      <div class="product-content">
+        <div class="product-title">Smartwatch i7 Pro And Promax Series 7</div>
+        <div class="product-price">Rs. 250</div>
+      </div>
+    </div> -->
+  </div>
+  <div class="flex justify-center pt-4">
+    <a href="" class="btn outline uppercase text-sm font-semibold">Load More</a>
+  </div>
+</div>

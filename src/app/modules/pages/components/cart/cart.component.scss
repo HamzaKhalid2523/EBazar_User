@@ -1,0 +1,19 @@
+.quantity button {
+  background: #e5e7ee;
+  padding: 2px 15px;
+  font-size: 25px;
+  margin: 0 20px;
+}
+.quantity button.disabled {
+  background: #f3f4f8;
+  cursor: no-drop;
+}
+
+.cart-item {
+  img {
+    width: 150px;
+  }
+  h2 {
+    min-width: 75px;
+  }
+}

@@ -1,0 +1,106 @@
+<div class="flex justify-center cart">
+  <div class="container">
+    <div class="grid grid-cols-4 gap-4">
+      <div class="col-span-3">
+        <div class="mt-4 bg-white px-8 py-4 flex justify-between">
+          <label class="flex items-center text-sm font-semibold">
+            {{cartSelection?.length}} Item(s) Selected
+          </label>
+        </div>
+        <div class="mt-4 bg-white py-4 cart-item" *ngFor="let item of cartData; let i = index">
+          <div class="px-8">
+            <labe class="flex items-center text-sm font-semibold">{{item?.shop?.shop?.companyName}}</labe>
+          </div>
+          <div class="divider"></div>
+          <div class="px-8 flex justify-between">
+            <div class="mr-6 flex items-center">
+              <img [src]="item?.product?.product?.productImages[0]" alt="">
+            </div>
+            <div class="mx-6 flex justify-center flex-col">
+              <h2 class="font-semibold text-lg text-gray-700">{{item?.product?.product?.productName}}</h2>
+              <p class="text-sm mt-2">Brand: <span class="text-green-500">{{item?.product?.product?.productBrand}}</span></p>
+            </div>
+            <div class="mx-6 flex items-center">
+              <h2 class="font-semibold text-lg text-orange-500">Rs. {{item?.product?.product?.price}}</h2>
+            </div>
+            <div class="mx-6 quantity flex items-center">
+              <h2 class="font-semibold text-sm mr-4">
+                Quantity: {{item?.selectedQuantity}}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="mt-4 bg-white px-8 py-4">
+          <h2 class="font-semibold text-lg text-gray-700 underline mb-6">Shipping & Billing</h2>
+          <div class="text-sm flex my-2">
+            <i nz-icon nzType="global" nzTheme="outline" class="text-green-500 mr-4"></i>
+            <h2 class="">{{currentUser?.username | titlecase}}</h2>
+          </div>
+          <div class="text-sm flex my-2">
+            <i nz-icon nzType="phone" nzTheme="outline" class="text-green-500 mr-4"></i>
+            <h2 class="">{{currentUser?.phone}}</h2>
+          </div>
+          <div class="text-sm flex my-2">
+            <i nz-icon nzType="mail" nzTheme="outline" class="text-green-500 mr-4"></i>
+            <h2 class="">{{currentUser?.email}}</h2>
+          </div>
+          <div class="address my-2 text-sm">
+            <ng-container *ngIf="currentUser?.deliverAddress else addAddress">
+              <nz-tag class="mb-1" [nzColor]="'blue'">{{currentUser?.deliverAddress?.addressType}}</nz-tag>
+              <span>{{currentUser?.deliverAddress?.address}}</span>
+            </ng-container>
+            <ng-template #addAddress>
+              <a (click)="showCreateModal()">
+                <nz-tag class="mb-1" [nzColor]="'blue'">Add Address</nz-tag>
+              </a>
+            </ng-template>
+          </div>
+          <div class="divider"></div>
+          <h2 class="font-semibold text-lg text-gray-700 underline mb-6">Order Summary</h2>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Subtotal (2 Items)</h2>
+            <h2 class="text-sm">Rs. {{itemsTotal}}</h2>
+          </div>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Shipping Fee</h2>
+            <h2 class="text-sm">Rs. {{shippingTotal}}</h2>
+          </div>
+          <div class="divider"></div>
+          <div class="flex justify-between my-2">
+            <h2 class="text-sm">Total</h2>
+            <h2 class="text-sm">Rs. {{subTotal}}</h2>
+          </div>
+          <div class="links mt-4">
+            <a class="btn" (click)="checkout()">
+              <span class="content">
+                Proceed to Checkout
+                <i class="icon fas fa-angle-right ml-2"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nz-modal
+  *ngIf="addressModalVisible"
+  [(nzVisible)]="addressModalVisible"
+  [nzTitle]="formType === 'Update' ? 'Update Address' : 'Add New Address'"
+  [nzFooter]="null"
+  [nzMaskClosable]="false"
+  [nzWidth]="1400"
+  (nzOnCancel)="addressModalVisible = false"
+>
+  <ng-container *nzModalContent>
+    <app-add-address
+      [formType]="formType"
+      [updatedData]="modalData"
+      (modalVisible)="getUser()"
+    ></app-add-address>
+  </ng-container>
+</nz-modal>
+

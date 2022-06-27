@@ -1,0 +1,16 @@
+<div>
+  <a
+    *ngFor="let num of [1,2,3,4,5]"
+    (click)="rate(num)"
+  >
+    <i
+      nz-icon
+      nzType="star"
+      nzTheme="outline"
+      class="mr-2"
+      [ngStyle]="{'color': getColor(num)}"
+      style="font-size: 2rem;"
+    ></i>
+
+  </a>
+</div>

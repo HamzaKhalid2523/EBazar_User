@@ -1,0 +1,60 @@
+a.btn {
+  width: 44%;
+
+  &.outline {
+    background: #3985e3;
+  }
+}
+
+section.section-side {
+  border-bottom: 1px solid #e8e9f1;
+
+  .title {
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .content {
+    padding: 15px 0 10px;
+
+    .icon {
+      font-size: 15px;
+      color: #0e9f6f;
+    }
+    .content-title {
+      font-size: 14px;
+    }
+    .content-tag {
+      font-size: 10px;
+      margin-top: 5px;
+    }
+    .price {
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+}
+
+.section-title {
+  border-bottom: 1px solid #eee;
+}
+
+::ng-deep .product-detail .section li {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.product-detail .section p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.quantity button {
+  background: #e5e7ee;
+  padding: 2px 15px;
+  font-size: 25px;
+  margin: 0 20px;
+}
+.quantity button.disabled {
+  background: #f3f4f8;
+  cursor: no-drop;
+}

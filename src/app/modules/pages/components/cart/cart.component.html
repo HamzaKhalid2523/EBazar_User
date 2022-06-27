@@ -1,0 +1,71 @@
+<div class="flex justify-center cart">
+  <div class="container">
+    <div class="grid grid-cols-4 gap-4">
+      <div class="col-span-3">
+        <div class="mt-4 bg-white px-8 py-4 flex justify-between">
+          <label
+            nz-checkbox
+            [nzIndeterminate]="selectedItems.length !== 0 && selectedItems.length < cartData.length"
+            [(ngModel)]="allStatus"
+            (ngModelChange)="selectAll($event)"
+          >SELECT ALL (5 ITEM(S))</label>
+          <a class="flex items-center text-sm font-semibold" (click)="deleteManyRecords()">
+            <i nz-icon nzType="delete" nzTheme="outline" class="mr-2"></i>
+            DELETE
+          </a>
+        </div>
+        <div class="mt-4 bg-white py-4 cart-item" *ngFor="let item of cartData; let i = index">
+          <div class="px-8">
+            <label nz-checkbox class="checkItem" [(ngModel)]="allItems[i]" (ngModelChange)="selecSingle($event, i)">{{item?.shop?.shop?.companyName}}</label>
+          </div>
+          <div class="divider"></div>
+          <div class="px-8 flex justify-between">
+            <div class="mr-6 flex items-center">
+              <img [src]="item?.product?.product?.productImages[0]" alt="">
+            </div>
+            <div class="mx-6 flex justify-center flex-col">
+              <h2 class="font-semibold text-lg text-gray-700">{{item?.product?.product?.productName}}</h2>
+              <p class="text-sm mt-2">Brand: <span class="text-green-500">{{item?.product?.product?.productBrand}}</span></p>
+            </div>
+            <div class="mx-6 flex items-center">
+              <h2 class="font-semibold text-lg text-orange-500">Rs. {{item?.product?.product?.price}}</h2>
+            </div>
+            <div class="mx-6 quantity flex items-center">
+              <h2 class="font-semibold text-sm mr-4">Quantity:</h2>
+              <button [class.disabled]="item?.selectedQuantity === 1 || allItems[i]" (click)="decrementQuantity(i)">-</button>
+              <span class="font-semibold text-sm" style="width: 15px;">{{item?.selectedQuantity}}</span>
+              <button [class.disabled]="item?.selectedQuantity === productData?.stockQuantity || allItems[i]" (click)="incrementQuantity(i)">+</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-span-1">
+        <div class="mt-4 bg-white px-8 py-4">
+          <h2 class="font-semibold text-lg text-gray-700 underline mb-6">Order Summary</h2>
+          <div class="flex justify-between my-2">
+            <h2 class="font-semibold text-sm">Subtotal (2 Items)</h2>
+            <h2 class="font-semibold text-sm">Rs. {{itemsTotal}}</h2>
+          </div>
+          <div class="flex justify-between my-2">
+            <h2 class="font-semibold text-sm">Shipping Fee</h2>
+            <h2 class="font-semibold text-sm">Rs. {{shippingTotal}}</h2>
+          </div>
+          <div class="divider"></div>
+          <div class="flex justify-between my-2">
+            <h2 class="font-semibold text-sm">Total</h2>
+            <h2 class="font-semibold text-sm">Rs. {{subTotal}}</h2>
+          </div>
+          <div class="links mt-4">
+            <a class="btn" (click)="checkout()" [class.disabled]="!selectedItems.length">
+              <span class="content">
+                Proceed to Checkout
+                <i class="icon fas fa-angle-right ml-2"></i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

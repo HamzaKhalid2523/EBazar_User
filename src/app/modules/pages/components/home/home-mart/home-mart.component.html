@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="flex justify-between py-2">
+    <h4 class="text-lg font-semibold">Ebazar Mall</h4>
+    <a href="#" class="flex justify-center items-center text-sm uppercase text-primary font-semibold">
+      SHOP MORE
+      <i nz-icon nzType="right" nzTheme="outline" class="ml-2"></i>
+    </a>
+  </div>
+  <div class="grid grid-cols-12 gap-4 martlist">
+    <div class="col-span-2" *ngFor="let item of dataList">
+      <a [routerLink] = "['/mart-catalog-detail', item?._id]">
+        <div class="item relative">
+          <div class="item-img">
+            <img *ngIf="item.productImages.length" [src]="item.productImages[0]" alt="">
+          </div>
+          <div class="item-logo">
+            <img [src]="item.shop?.companyLogo" alt="">
+          </div>
+          <div class="item-content">
+            <div class="item-brand uppercase text-sm font-semibold pt-4">{{item.shop?.companyName}}</div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <!-- <div class="col-span-2">
+      <div class="item relative">
+        <div class="item-img">
+          <img src="https://static-01.daraz.pk/p/4dd5d5f1b3b4f45e8d3cf1b0fc2c7f0c.jpg" alt="">
+        </div>
+        <div class="item-logo">
+          <img src="https://static-01.daraz.pk/other/shop/49aa0595d6241b01e32978c69da74e34.jpeg" alt="">
+        </div>
+        <div class="item-content">
+          <div class="item-brand uppercase text-sm font-semibold pt-4">AL BURHAN LUGGAGE</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="item relative">
+        <div class="item-img">
+          <img src="https://static-01.daraz.pk/p/4dd5d5f1b3b4f45e8d3cf1b0fc2c7f0c.jpg" alt="">
+        </div>
+        <div class="item-logo">
+          <img src="https://static-01.daraz.pk/other/shop/49aa0595d6241b01e32978c69da74e34.jpeg" alt="">
+        </div>
+        <div class="item-content">
+          <div class="item-brand uppercase text-sm font-semibold pt-4">AL BURHAN LUGGAGE</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="item relative">
+        <div class="item-img">
+          <img src="https://static-01.daraz.pk/p/4dd5d5f1b3b4f45e8d3cf1b0fc2c7f0c.jpg" alt="">
+        </div>
+        <div class="item-logo">
+          <img src="https://static-01.daraz.pk/other/shop/49aa0595d6241b01e32978c69da74e34.jpeg" alt="">
+        </div>
+        <div class="item-content">
+          <div class="item-brand uppercase text-sm font-semibold pt-4">AL BURHAN LUGGAGE</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="item relative">
+        <div class="item-img">
+          <img src="https://static-01.daraz.pk/p/4dd5d5f1b3b4f45e8d3cf1b0fc2c7f0c.jpg" alt="">
+        </div>
+        <div class="item-logo">
+          <img src="https://static-01.daraz.pk/other/shop/49aa0595d6241b01e32978c69da74e34.jpeg" alt="">
+        </div>
+        <div class="item-content">
+          <div class="item-brand uppercase text-sm font-semibold pt-4">AL BURHAN LUGGAGE</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-2">
+      <div class="item relative">
+        <div class="item-img">
+          <img src="https://static-01.daraz.pk/p/4dd5d5f1b3b4f45e8d3cf1b0fc2c7f0c.jpg" alt="">
+        </div>
+        <div class="item-logo">
+          <img src="https://static-01.daraz.pk/other/shop/49aa0595d6241b01e32978c69da74e34.jpeg" alt="">
+        </div>
+        <div class="item-content">
+          <div class="item-brand uppercase text-sm font-semibold pt-4">AL BURHAN LUGGAGE</div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="white">
+  <div class="squares">
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+    <div class="square" [ngStyle]="{ background: statusColor }"></div>
+  </div>
+</div>
+<div class="body-login" style="background: transparent; min-height: 85vh !important;">
+  <div
+    class="login-card"
+    (mouseenter)="mouseEnter('rgb(187 247 208)')"
+    (mouseleave)="mouseLeave('#bebcbc')"
+  >
+    <input type="checkbox" id="chk" />
+    <div class="signup p-8 relative w-full h-full flex justify-center items-center">
+      <form [formGroup]="signupForm" class="sign-form validate-form w-full h-full p-8">
+        <h4
+          class="font-semibold text-center mb-4"
+          style="
+            color: #6b6d76;
+            font-size: 1.7rem;
+          "
+        >
+          Welcome! Please Signup.
+        </h4>
+
+        <div class="sig divider" style="margin: 0 auto 45px;"></div>
+
+        <div class="user-box">
+          <input
+            required
+            type="text"
+            formControlName="phone"
+            title="Please Enter Phone!"
+          />
+          <label>Phone</label>
+        </div>
+        <div class="user-box" *ngIf="!enableVerificationCode">
+          <input type="range" min="0" max="100" value="0" class="range" [(ngModel)]="value" [ngModelOptions]="{standalone: true}"/>
+          <label style="top: 10px; left: 36%;">Slide to get SMS Code</label>
+        </div>
+        <div class="user-box" *ngIf="enableVerificationCode">
+          <input
+            required
+            type="text"
+            formControlName="verificationCode"
+            title="Please Verification Code!"
+          />
+          <label>SMS Verification Code</label>
+        </div>
+        <div class="user-box">
+          <input
+            required
+            type="text"
+            formControlName="email"
+            title="Please Enter Email!"
+          />
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input
+            required
+            type="text"
+            formControlName="username"
+            title="Please Enter Username!"
+          />
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input
+            required
+            type="password"
+            formControlName="password"
+            title="Please Enter Password!"
+          />
+          <label>Password</label>
+        </div>
+
+        <button class="login-btn" [disabled]="!signupForm.valid" (click)="register()">
+          <span>
+            <i *ngIf="loading" class="fas fa-sync fa-spin mr-1"></i>
+            Signup
+          </span>
+          <div class="liquid"></div>
+        </button>
+
+        <div class="sig divider" style="margin: 35px auto 25px;"></div>
+
+        <div class="text-center text-gray-600 text-base">
+          <span>
+            Already a Member?
+            <a routerLink="/login" class="text-center" style="color: #19c78d;">Login!</a>
+            Here
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

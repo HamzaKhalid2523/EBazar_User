@@ -1,0 +1,199 @@
+.login-card {
+  height: 515px;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 25px;
+  box-shadow: 5px 20px 50px #c2c3c9;
+  background: #fff;
+  z-index: 1;
+}
+
+/* From css.login-btns.io by @westitan */
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active{
+//   width: 100%;
+//   padding: 10px;
+//   font-size: 0.875rem;
+//   margin-bottom: 30px;
+//   outline: none;
+//   border-radius: 5px;
+//   border: 1px solid #232738;
+//   -webkit-text-fill-color: #b7b7bf;
+//   -webkit-box-shadow: 0 0 0px 1000px #21222f inset;
+//   transition: background-color 5000s ease-in-out 0s;
+// }
+
+.login-btn {
+  position: relative;
+  padding: 8px 0;
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #0e9f6f;
+}
+
+.login-btn span {
+  position: relative;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 8px;
+  z-index: 1;
+}
+
+.login-btn .liquid {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: #0e9f6f;
+  box-shadow: inset 0 0 50px rgb(14 159 111 / 41%);
+  transition: 0.5s;
+}
+
+.login-btn .liquid::after,
+.login-btn .liquid::before {
+  content: '';
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  background: #fff;
+}
+
+.login-btn .liquid::before {
+  border-radius: 45%;
+  background: rgb(11 100 71 / 40%);
+  animation: animate 5s linear infinite;
+}
+
+.login-btn .liquid::after {
+  border-radius: 40%;
+  background: #11503b00;
+  animation: animate 10s linear infinite;
+}
+
+.login-btn:hover .liquid {
+  top: -120px;
+}
+
+@keyframes animate {
+  0% {
+    transform: translate(-50%, -75%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -75%) rotate(360deg);
+  }
+}
+
+.topright {
+  position: absolute;
+  top: 32px;
+  left: 422px;
+  font-size: 30px;
+  font-weight: 500;
+  color: #dd135b;
+}
+
+
+.white {
+  height: 1%;
+  position: absolute;
+  min-height: 93%;
+  width: 100%;
+}
+
+.squares {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.square {
+  animation: squares 9.5s linear infinite;
+  align-self: flex-end;
+  width: 1em;
+  height: 1em;
+  transform: translateY(100%);
+  background: #bebcbc;
+  &:nth-child(2) {
+    height: 1.5em;
+    width: 3em;
+    animation-delay: 1s;
+    animation-duration: 17s;
+    -webkit-filter: blur(5px);
+  }
+  &:nth-child(3) {
+    height: 2em;
+    width: 1em;
+    animation-delay: 1.5s;
+    animation-duration: 8s;
+    -webkit-filter: blur();
+  }
+  &:nth-child(4) {
+    height: 1em;
+    width: 1.5em;
+    animation-delay: 0.5s;
+    -webkit-filter: blur(3px);
+    animation-duration: 13s;
+  }
+  &:nth-child(5) {
+    height: 1.25em;
+    width: 2em;
+    animation-delay: 4s;
+    -webkit-filter: blur(2px);
+    animation-duration: 11s;
+  }
+  &:nth-child(6) {
+    height: 2.5em;
+    width: 2em;
+    animation-delay: 2s;
+    -webkit-filter: blur(1px);
+    animation-duration: 9s;
+  }
+  &:nth-child(7) {
+    height: 5em;
+    width: 2em;
+    -webkit-filter: blur(2.5px);
+    animation-duration: 12s;
+  }
+  &:nth-child(8) {
+    height: 1em;
+    width: 3em;
+    animation-delay: 5s;
+    -webkit-filter: blur(6px);
+    animation-duration: 18s;
+  }
+  &:nth-child(9) {
+    height: 1.5em;
+    width: 2em;
+    -webkit-filter: blur(0.5px);
+    animation-duration: 9s;
+  }
+  &:nth-child(9) {
+    height: 3em;
+    width: 2.4em;
+    animation-delay: 6s;
+    -webkit-filter: blur(0.5px);
+    animation-duration: 12s;
+  }
+}
+
+@keyframes squares {
+  from {
+    transform: translateY(100%) rotate(-50deg);
+  }
+  to {
+    transform: translateY(calc(-100vh + -100%)) rotate(20deg);
+  }
+}
+
